@@ -30,9 +30,6 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered input-info w-full max-w-xs" />
                         <input type="submit" value="submit" className="btn btn-secondary w-full max-w-xs" />
                     </form>
-                    <div className="modal-action">
-                        <label htmlFor="my-modal-6" className="btn">Yay!</label>
-                    </div>
                 </div>
             </div>
         </div>
