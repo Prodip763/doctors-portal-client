@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const About =() =>{
-    return(
+const About = () => {
+    return (
         <div>
-            <h2>This is about</h2>
-
+            <h1>THIS IS About</h1>
         </div>
     );
 };
