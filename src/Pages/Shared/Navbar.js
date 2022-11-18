@@ -7,7 +7,7 @@ import auth from "../../firebase.init";
 const Navbar = () => {
 
     const [user] = useAuthState(auth);
-    const logout = () =>{
+    const logout = () => {
         signOut(auth);
     }
     const menuItems = <>
@@ -16,8 +16,11 @@ const Navbar = () => {
         <li><Link to="/appoinment">Appoinment</Link></li>
         <li><Link to="/review">Reviews</Link></li>
         <li><Link to="/contact">Contact Us</Link></li>
-        <li>{user ? <button className="btn btn-ghost" onClick={logout}>Sign Out</button> :<Link to="/login">Login</Link>}</li>
-        
+        {
+            user && <li><Link to="/dashboard">Dashboard</Link></li>
+        }
+        <li>{user ? <button className="btn btn-ghost" onClick={logout}>Sign Out</button> : <Link to="/login">Login</Link>}</li>
+
 
     </>
     return (
@@ -31,7 +34,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
+                <a className="btn btn-ghost normal-case text-3xl">Telemedicine</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -39,7 +42,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <label tabIndex={1} htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+                
             </div>
         </div>
     );
